@@ -11,17 +11,19 @@ testServer.get('/g',(req,res)=>{
 })
 
 testServer.post('/b',(req,res)=>{
-    console.log(req)
-    console.log(req.body)
+    // console.log(req)
+    // console.log(req.body)
      data = req.body.tvalue
    res.end()
 })
 
 testServer.get('/b',(req,res) =>{
-    res.json({
-        textInfo: data
-    });
+    console.log(data)   
+    if(data != undefined)
+
+        res.json({ textInfo: data });
+    else
+        res.end()
     
 })
-
 testServer.listen(3000, ()=>console.log("testServer listens to port 3000"));

@@ -7,7 +7,7 @@
         console.log(textValue.value)
         const tvalue = textValue.value
         const textInfo = {tvalue};
-        const headerInfoPost = {
+        const headerInfo = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -16,7 +16,7 @@
         };
         
         
-        const response = await fetch('/b',headerInfoPost);
+        const response = await fetch('/b',headerInfo);
 
     })
 
