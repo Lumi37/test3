@@ -1,3 +1,7 @@
 body {
     background-color: royalblue;
 }
+
+input[type=text] {
+    background-color: tomato;
+}

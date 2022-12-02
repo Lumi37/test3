@@ -1,18 +1,16 @@
 import express from "express";
 
 const testServer = express();
-
+let data;
 
 testServer.use(express.static('../client'));
 testServer.use(express.json())
-let data;
+
 testServer.get('/g',(req,res)=>{
     res.send('hhhh')
 })
 
 testServer.post('/b',(req,res)=>{
-    // console.log(req)
-    // console.log(req.body)
      data = req.body.tvalue
    res.end()
 })
