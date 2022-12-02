@@ -1,29 +1,31 @@
+
+    const response =  await fetch('/loadWindow')
+    const text = await response.text()
+
+    let saveButton = document.querySelector("#save")
+    let loadButton = document.querySelector("#load")
+    let field = document.querySelector("#field")
+    field.value = text;
     
-    let subButton1 = document.querySelector("#submit1")
-    let subButton2 = document.querySelector("#submit2")
-    let textValue = document.querySelector("#field")
-    
-    subButton1.addEventListener("click", (e)=>{
-        console.log(textValue.value)
-        let tvalue = textValue.value
-        const textInfo = {tvalue};
-        
-        const headerInfo = {
+    saveButton.addEventListener("click", (e)=>{
+        console.log(field.value)
+        let fieldContent = field.value
+        const fieldObj = {fieldContent};
+        const info = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body:JSON.stringify(textInfo)
+            body: JSON.stringify(fieldObj)
         };
-        
-        
-        fetch('/b',headerInfo);
-        textValue.value = ""
+
+        fetch('/btnSave',info);
+        field.value = ""
 
     })
 
-    subButton2.addEventListener("click", async (e)=>{
+    loadButton.addEventListener("click", async (e)=>{
 
-        const res = await fetch('/b')
+        const res = await fetch('/btnLoad')
         const json = await res.json()
-        textValue.value = json.textInfo
+        field.value = json.fieldObj
     })
 
